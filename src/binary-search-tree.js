@@ -32,7 +32,7 @@ class BinarySearchTree {
         // find the correct position in the tree and add the node
         this.insertNode(this.ROOT, newNode);
   }
-  // Method to insert a node in a tree; it moves over the tree to find the location to insert a node with a given data
+  
   insertNode(node, newNode){
     // if the data is less than the node data move left of the tree
     if(newNode.data < node.data)
