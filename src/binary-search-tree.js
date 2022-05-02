@@ -57,16 +57,33 @@ class BinarySearchTree {
     }
 }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    return !!this.find(data);
+
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+  find(data) {
+    return this.search(this.ROOT, data);
 
+  }
+  search(node, data)
+  {
+     // if trees is empty return null
+      if(node === null)
+          return null;
+   
+      // if data is less than node's data move left
+      else if(data < node.data)
+          return this.search(node.left, data);
+   
+      // if data is less than node's data move left
+      else if(data > node.data)
+          return this.search(node.right, data);
+   
+      // if data is equal to the node data return node
+      else
+          return node;
+  }
   remove(data) {
     this.ROOT = this.removeNode(this.ROOT, data);
 
