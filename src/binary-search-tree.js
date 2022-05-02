@@ -55,7 +55,7 @@ class BinarySearchTree {
              // if right is not null recur until null is found
             this.insertNode(node.right,newNode);
     }
-}
+  }
 
   has(data) {
     return !!this.find(data);
@@ -66,9 +66,8 @@ class BinarySearchTree {
     return this.search(this.ROOT, data);
 
   }
-  search(node, data)
-  {
-     // if trees is empty return null
+
+  search(node, data){
       if(node === null)
           return null;
    
@@ -84,12 +83,12 @@ class BinarySearchTree {
       else
           return node;
   }
+
   remove(data) {
     this.ROOT = this.removeNode(this.ROOT, data);
 
   }
   removeNode(node, key){     
-    // if the root is null then tree is empty
     if(node === null)
         return null;
  
@@ -131,9 +130,9 @@ class BinarySearchTree {
         }
  
         // Deleting node with two children minimum node of the right subtree is stored in aux
-        let aux = this.min(node.right);
+        let aux = this.findMinNode(node.right);
         node.data = aux.data;
- 
+  
         node.right = this.removeNode(node.right, aux.data);
         return node;
     }
@@ -148,20 +147,19 @@ class BinarySearchTree {
 
   }
   
-  findMinNode(node)
-{
-    // if left of a node is null then it must be minimum node
+  findMinNode(node){
     if(node.left === null)
         return node;
     else
         return this.findMinNode(node.left);
-}
-findMaxNode(node){
+  }
+
+  findMaxNode(node){
     if(node.right === null)
         return node;
     else
         return this.findMaxNode(node.right);
-}
+  }
 }
 
 module.exports = {
