@@ -88,8 +88,7 @@ class BinarySearchTree {
     this.ROOT = this.removeNode(this.ROOT, data);
 
   }
-  removeNode(node, key)
-  {     
+  removeNode(node, key){     
     // if the root is null then tree is empty
     if(node === null)
         return null;
@@ -138,17 +137,31 @@ class BinarySearchTree {
         node.right = this.removeNode(node.right, aux.data);
         return node;
     }
-   }
+  }
    
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.findMinNode(this.ROOT).data;
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.findMaxNode(this.ROOT).data;
+
   }
+  
+  findMinNode(node)
+{
+    // if left of a node is null then it must be minimum node
+    if(node.left === null)
+        return node;
+    else
+        return this.findMinNode(node.left);
+}
+findMaxNode(node){
+    if(node.right === null)
+        return node;
+    else
+        return this.findMaxNode(node.right);
+}
 }
 
 module.exports = {
